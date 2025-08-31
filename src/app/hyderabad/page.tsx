@@ -19,6 +19,7 @@ export default function Hyderabad() {
       {/* brand bar (same) */}
       <header className="relative z-10">
         <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between">
+          {/* Logo + Title */}
           <div className="flex items-center gap-3">
             <Image
               src="/logo.jpeg"
@@ -28,21 +29,43 @@ export default function Hyderabad() {
               className="rounded-full ring-1 ring-white/20 object-cover bg-white"
             />
             <div className="leading-tight">
-              <span className="block text-[10px] sm:text-xs tracking-widest text-white/60">WELCOME TO</span>
-              <h1 className="text-lg sm:text-xl font-semibold tracking-wide">Sana Sarah Salon</h1>
+              <span className="block text-[10px] sm:text-xs tracking-widest text-white/60">
+                WELCOME TO
+              </span>
+              <h1 className="text-lg sm:text-xl font-semibold tracking-wide">
+                Sana Sarah Salon
+              </h1>
             </div>
           </div>
+
+          {/* Desktop buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            <Link href="/" className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition backdrop-blur-md">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition backdrop-blur-md"
+            >
               <HomeIcon size={16} /> Home Page
             </Link>
-            <Link 
-            href="#agent" className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-tr from-pink-600 to-fuchsia-500 px-4 py-2 text-sm font-medium shadow-lg hover:brightness-110 transition">
+            <Link
+              href="#agent"
+              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-tr from-pink-600 to-fuchsia-500 px-4 py-2 text-sm font-medium shadow-lg hover:brightness-110 transition"
+            >
               <MessageCircle size={16} /> Talk to agent
+            </Link>
+          </div>
+
+          {/* ✅ Mobile-only Home button */}
+          <div className="sm:hidden">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs hover:bg-white/10 transition"
+            >
+              <HomeIcon size={14} /> Home
             </Link>
           </div>
         </nav>
       </header>
+
 
       {/* content */}
       <main className="relative z-10">
