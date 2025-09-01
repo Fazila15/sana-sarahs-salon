@@ -61,7 +61,7 @@ export default function BranchRateList() {
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5" />
               <div>
-                <p className="text-sm text-white/60">Address</p>
+                <p className="text-sm text-fuchsia-300">Address</p>
                 <p className="font-medium mt-0.5">{info.address}</p>
               </div>
             </div>
@@ -70,7 +70,7 @@ export default function BranchRateList() {
             <div className="flex items-start gap-3">
               <Phone className="mt-0.5" />
               <div>
-                <p className="text-sm text-white/60">Branch Number</p>
+                <p className="text-sm text-fuchsia-300">Branch Number</p>
                 <Link href={`tel:${info.phone}`} className="font-medium mt-0.5 underline underline-offset-4 hover:text-white">
                   {info.phone}
                 </Link>

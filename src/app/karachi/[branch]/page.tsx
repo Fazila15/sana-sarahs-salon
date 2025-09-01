@@ -105,7 +105,7 @@ export default function BranchOptions() {
           </p>
           <Link
             href={`/karachi/${slug}/gallery`}
-            className="mt-3 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition"
+            className="mt-3 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 text-pink-200 transition"
           >
             <ImageIcon size={16} />
             Open Catalogue

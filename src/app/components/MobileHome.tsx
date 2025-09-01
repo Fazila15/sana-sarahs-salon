@@ -9,9 +9,11 @@ export default function MobileHome() {
     <div className="sm:hidden fixed top-3 right-3 z-50">
       <Link
         href="/"
-        className="inline-flex items-center gap-1 rounded-xl border border-white/15 bg-white/10 backdrop-blur px-3 py-2 text-xs font-medium hover:bg-white/20 transition"
+        className="inline-flex items-center gap-1 rounded-xl 
+                   bg-white text-black font-semibold shadow-lg
+                   px-3 py-2 text-xs hover:bg-gray-200 transition"
       >
-        <HomeIcon size={14} />
+        <HomeIcon size={14} className="text-black" />
         Home
       </Link>
     </div>

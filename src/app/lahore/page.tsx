@@ -63,7 +63,7 @@ export default function Lahore() {
           </div>
         </Link>
 
-        <Link href={`https://wa.me/${encodeURIComponent(WHATSAPP)}?text=${encodeURIComponent("Hi Sana Sarah Salon, I need assistance for Lahore.")}`} target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-tr from-fuchsia-600 to-pink-500 p-5 hover:brightness-110 transition">
+        <Link href={`https://api.whatsapp.com/send/?phone=03331702212&text&type=phone_number&app_absent=0`} target="_blank" rel="noopener noreferrer" className="group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-tr from-fuchsia-600 to-pink-500 p-5 hover:brightness-110 transition">
           <div className="relative z-10 flex items-center gap-3">
             <div className="h-11 w-11 rounded-xl bg-white/20 grid place-items-center">
               <MessageCircle size={20} />
