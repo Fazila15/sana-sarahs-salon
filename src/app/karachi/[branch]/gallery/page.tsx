@@ -8,18 +8,17 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 const BRANCH_LABELS: Record<string, string> = {
-  "johar": "Johar",
+  johar: "Johar",
   "north-nazimabad": "North Nazimabad",
-  "dha": "DHA",
+  dha: "DHA",
   "tariq-road": "Tariq Road",
 };
 
-const WHATSAPP_NUMBER = "+92XXXXXXXXXX"; // <- apna WhatsApp number
+const WHATSAPP_NUMBER = "+923331702212";
 
-// label -> slug mapping for sub-categories
 const CATALOGUE: { label: string; slug: string }[] = [
-  { label: "Signature by Sana Sarah's", slug: "signature-by-sana-sarah" },
-  { label: "Signature Senior Artist", slug: "signature-senior-artist" },
+  { label: "Signature by Sana Sarah", slug: "signature-by-sana-sarah" },
+  { label: "Signature Artist", slug: "signature-artist" },
   { label: "Senior Artist", slug: "senior-artist" },
   { label: "Expert Artist", slug: "expert-artist" },
   { label: "Model Party Makeup", slug: "model-party-makeup" },
@@ -51,7 +50,9 @@ export default function CataloguePage() {
           <p className="text-xs sm:text-sm tracking-widest text-white/60 uppercase">
             Choose a category
           </p>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-bold">{title} — Makeup Catalogue</h2>
+          <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
+            {title} — Makeup Catalogue
+          </h2>
         </div>
 
         <motion.div
@@ -76,7 +77,9 @@ export default function CataloguePage() {
 
         <div className="mt-10 flex justify-center">
           <Link
-            href={`https://wa.me/${encodeURIComponent(WHATSAPP_NUMBER)}?text=${encodeURIComponent(
+            href={`https://wa.me/${encodeURIComponent(
+              WHATSAPP_NUMBER
+            )}?text=${encodeURIComponent(
               `Hi Sana Sarah Salon, please share catalogue details for ${title} branch (Karachi).`
             )}`}
             target="_blank"

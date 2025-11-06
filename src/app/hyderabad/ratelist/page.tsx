@@ -12,7 +12,7 @@ const CITY_INFO = {
   address: "Address: Plot No. B/1-54, ground floor, Railway Employees Housing Society, Main Auto Bhan Road, next to Bank Islamic & Haveli Restaurant ",
   phone: "Call us (Hyderabad Branch): 03700918026 022 3823358 , +92 340 2043923,",
 };
-const WHATSAPP_NUMBER = "+92XXXXXXXXXX"; // <- your WhatsApp number
+const WHATSAPP_NUMBER = "+92 340 2043923"; // <- your WhatsApp number
 
 export default function HyderabadRateList() {
   // Prefer .jpeg (common in your project), then .jpg, then .png

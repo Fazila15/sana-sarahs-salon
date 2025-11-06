@@ -8,7 +8,7 @@ import Image from "next/image";
 
 // Only declare hooks at top-level
 export default function LahoreCurrentDealsPage() {
-  const bases = useMemo(() => Array.from({ length: 9 }, (_, i) => `/deals/lahore/${i + 1}`), []);
+  const bases = useMemo(() => Array.from({ length: 10 }, (_, i) => `/deals/lahore/${i + 1}`), []);
 
   const [open, setOpen] = useState(false);
   const [activeIdx, setActiveIdx] = useState<number | null>(null);

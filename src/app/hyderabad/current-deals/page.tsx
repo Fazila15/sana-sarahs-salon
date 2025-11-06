@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Download } from "lucide-react";
 import Image from "next/image";
 
-const WHATSAPP_NUMBER = "+92XXXXXXXXXX"; // replace
+const WHATSAPP_NUMBER = "+923402043923"; // ✅ actual number
 
 // --- DealCard Component ---
 function DealCard({
@@ -18,7 +18,8 @@ function DealCard({
   i: number;
   openLightbox: (i: number) => void;
 }) {
-  const chain = useMemo(() => [`${base}.jpg`, `${base}.jpeg`, `${base}.png`], [base]);
+  // Prefer .jpeg first
+  const chain = useMemo(() => [`${base}.jpeg`, `${base}.jpg`, `${base}.png`], [base]);
   const [idx, setIdx] = useState(0);
   const src = chain[idx];
 
@@ -30,10 +31,10 @@ function DealCard({
         className="block w-full text-left"
         aria-label={`Open deal ${i + 1}`}
       >
-        <div className="relative w-full max-w-3xl mx-auto aspect-[3/4] rounded-xl overflow-hidden border border-white/10 bg-white/5">
+        <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden border border-white/10 bg-white/5">
           <Image
             src={src}
-            alt={`Deal ${i + 1}`}
+            alt={`Hyderabad Deal ${i + 1}`}
             fill
             className="object-contain"
             priority
@@ -63,8 +64,10 @@ function DealCard({
 
 // --- Main Page ---
 export default function HyderabadCurrentDealsPage() {
+  const TOTAL_DEALS = 9; // ✅ your folder has 9 images
+
   const bases = useMemo(
-    () => Array.from({ length: 7 }, (_, i) => `/deals/karachi/${i + 1}`),
+    () => Array.from({ length: TOTAL_DEALS }, (_, i) => `/deals/hyderabad/${i + 1}`),
     []
   );
 
@@ -107,10 +110,11 @@ export default function HyderabadCurrentDealsPage() {
             Limited-time offers
           </p>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
-            Hyderabad — 7 Deals
+            Hyderabad — {bases.length} Deals
           </h2>
         </motion.div>
 
+        {/* ✅ Deals Grid */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -122,6 +126,7 @@ export default function HyderabadCurrentDealsPage() {
           ))}
         </motion.div>
 
+        {/* ✅ WhatsApp Button */}
         <div className="pt-4 flex justify-center">
           <Link
             href={`https://wa.me/${encodeURIComponent(
@@ -143,6 +148,7 @@ export default function HyderabadCurrentDealsPage() {
         </p>
       </main>
 
+      {/* ✅ Lightbox */}
       <AnimatePresence>
         {open && activeIdx !== null && (
           <motion.div
@@ -152,7 +158,7 @@ export default function HyderabadCurrentDealsPage() {
             exit={{ opacity: 0 }}
           >
             <Lightbox
-              baseFolder="/deals/karachi"
+              baseFolder="/deals/hyderabad"
               index={activeIdx}
               onClose={closeLightbox}
               label="Hyderabad"
@@ -177,7 +183,7 @@ function Lightbox({
   label: string;
 }) {
   const base = `${baseFolder}/${index + 1}`;
-  const chain = [`${base}.jpg`, `${base}.jpeg`, `${base}.png`];
+  const chain = [`${base}.jpeg`, `${base}.jpg`, `${base}.png`];
   const [i, setI] = useState(0);
   const src = chain[i];
   return (

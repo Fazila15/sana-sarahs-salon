@@ -1,4 +1,3 @@
-// app/karachi/[branch]/current-deals/page.tsx
 "use client";
 
 import React, { useMemo, useState } from "react";
@@ -19,7 +18,8 @@ function DealCard({
   openLightbox: (i: number) => void;
   label: string;
 }) {
-  const chain = useMemo(() => [`${base}.jpg`, `${base}.jpeg`, `${base}.png`], [base]);
+  // Try jpeg first
+  const chain = useMemo(() => [`${base}.jpeg`, `${base}.jpg`, `${base}.png`], [base]);
   const [idx, setIdx] = useState(0);
   const src = chain[idx];
 
@@ -60,8 +60,11 @@ function DealCard({
 
 // ✅ Main Page
 export default function KarachiBranchDealsPage() {
+  // total images = 9
+  const TOTAL_DEALS = 9;
+
   const bases = useMemo(
-    () => Array.from({ length: 7 }, (_, i) => `/deals/karachi/${i + 1}`),
+    () => Array.from({ length: TOTAL_DEALS }, (_, i) => `/deals/karachi/${i + 1}`),
     []
   );
 
@@ -99,7 +102,7 @@ export default function KarachiBranchDealsPage() {
             Limited-time offers
           </p>
           <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
-            Karachi — 7 Deals
+            Karachi — {bases.length} Deals
           </h2>
         </motion.div>
 
@@ -157,7 +160,7 @@ function Lightbox({
   label: string;
 }) {
   const base = `${baseFolder}/${index + 1}`;
-  const chain = [`${base}.jpg`, `${base}.jpeg`, `${base}.png`];
+  const chain = [`${base}.jpeg`, `${base}.jpg`, `${base}.png`];
   const [i, setI] = useState(0);
   const src = chain[i];
 

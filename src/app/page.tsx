@@ -20,7 +20,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <Image
               src="/logo.jpeg"
-              alt="Sana Sarah Salon"
+              alt="Sana Sarah's Salon & Studio"
               width={48}
               height={48}
               className="rounded-full ring-1 ring-white/20 object-cover bg-white"
@@ -30,7 +30,7 @@ export default function Home() {
                 WELCOME TO
               </span>
               <h1 className="text-lg sm:text-xl font-semibold tracking-wide">
-                Sana Sarah Salon
+                Sana Sarah's Salon & Studio
               </h1>
             </div>
           </div>
@@ -63,12 +63,12 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="w-full max-w-3xl text-center"
             >
-              <p className="text-xs sm:text-sm md:text-base tracking-widest text-white/70 uppercase">
+              <p className="text-md sm:text-sm md:text-base tracking-widest text-white/70 uppercase">
                 Welcome to
               </p>
-              <h2 className="mt-2 text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.1]">
+              <h2 className="mt-2 text-2xl sm:text-4xl md:text-5xl font-bold leading-[1.1]">
                 <span className="bg-gradient-to-r from-white via-pink-200 to-white bg-clip-text text-transparent">
-                  Sana Sarah Salon
+                  Sana Sarah's Salon & Studio
                 </span>
               </h2>
               <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/70">
@@ -107,7 +107,7 @@ export default function Home() {
 
       <footer className="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-white/60">
-          <p>© {new Date().getFullYear()} Sana Sarah Salon. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Sana Sarah's Salon & Studio. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="#" className="hover:text-white/90 transition">Privacy</Link>
             <Link href="#" className="hover:text-white/90 transition">Terms</Link>
