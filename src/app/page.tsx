@@ -1,62 +1,24 @@
-// src/app/page.tsx
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, HomeIcon } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+import FlipCityCard from "@/app/components/FlipCityCard";
+
 
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full text-white overflow-hidden">
-      {/* soft glows */}
+      {/* --- Soft gradient glows --- */}
       <div aria-hidden className="absolute -top-40 left-1/2 -translate-x-1/2 h-[420px] w-[420px] rounded-full blur-3xl bg-fuchsia-700/10" />
       <div aria-hidden className="absolute -bottom-40 right-10 h-[360px] w-[360px] rounded-full blur-3xl bg-pink-600/10" />
 
-      {/* brand bar (left) — right side buttons come from TopActions globally */}
-      <header className="relative z-10">
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo.jpeg"
-              alt="Sana Sarah's Salon & Studio"
-              width={48}
-              height={48}
-              className="rounded-full ring-1 ring-white/20 object-cover bg-white"
-            />
-            <div className="leading-tight">
-              <span className="block text-[10px] sm:text-xs tracking-widest text-white/60">
-                WELCOME TO
-              </span>
-              <h1 className="text-lg sm:text-xl font-semibold tracking-wide">
-                Sana Sarah's Salon & Studio
-              </h1>
-            </div>
-          </div>
-
-          {/* keep this minimal; TopActions already renders Back/Home/Agent */}
-          <div className="hidden sm:flex items-center gap-3">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition backdrop-blur-md"
-            >
-              <HomeIcon size={16} /> Home Page
-            </Link>
-            <Link
-              href="#agent"
-              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-tr from-pink-600 to-fuchsia-500 px-4 py-2 text-sm font-medium shadow-lg hover:brightness-110 transition"
-            >
-              <MessageCircle size={16} /> Talk to agent
-            </Link>
-          </div>
-        </nav>
-      </header>
-
-      {/* content */}
+      {/* --- Hero Section --- */}
       <main className="relative z-10">
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="min-h-[calc(100svh-120px)] flex flex-col items-center justify-center py-10 sm:py-16">
+            {/* ---- Heading ---- */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,30 +30,45 @@ export default function Home() {
               </p>
               <h2 className="mt-2 text-2xl sm:text-4xl md:text-5xl font-bold leading-[1.1]">
                 <span className="bg-gradient-to-r from-white via-pink-200 to-white bg-clip-text text-transparent">
-                  Sana Sarah's Salon & Studio
+                  Sana Sarah&apos;s Salon &amp; Studio
                 </span>
               </h2>
               <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/70">
-                Premium hair, beauty & bridal services. Experience luxury with expert stylists.
+                Premium hair, beauty &amp; bridal services. Experience luxury with expert stylists.
               </p>
             </motion.div>
 
-            {/* city cards */}
+            {/* ---- City Cards ---- */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 w-full max-w-3xl"
+              className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5 w-full max-w-4xl"
             >
-              <CityCard city="Karachi" href="/karachi" />
-              <CityCard city="Hyderabad" href="/hyderabad" />
-              <CityCard city="Lahore" href="/lahore" />
+              {/* Karachi — multiple branches */}
+              {/* Karachi – multiple branches */}
+              <FlipCityCard
+                city="Karachi"
+                branches={[
+                  { name: "DHA Branch", slug: "dha", hrefBase: "/karachi/dha" },
+                  { name: "Johar Branch", slug: "johar", hrefBase: "/karachi/johar" },
+                  { name: "North Nazimabad Branch", slug: "north-nazimabad", hrefBase: "/karachi/north-nazimabad" },
+                  { name: "Tariq Road Branch", slug: "tariq-road", hrefBase: "/karachi/tariq-road" },
+                ]}
+              />
+
+              {/* Hyderabad – single branch */}
+              <FlipCityCard city="Hyderabad" hrefBase="/hyderabad" />
+
+              {/* Lahore – single branch */}
+              <FlipCityCard city="Lahore" hrefBase="/lahore" />
             </motion.div>
 
-            {/* footer CTA */}
+
+            {/* ---- Contact Button ---- */}
             <div className="mt-8 sm:mt-12 flex flex-col items-center gap-2" id="agent">
               <Link
-                href="https://wa.me/92XXXXXXXXXX?text=Hi%20Sana%20Sarah%20Salon%2C%20I%20want%20to%20book%20an%20appointment."
+                href="https://wa.me/923331702212?text=Hi%20Sana%20Sarah%20Salon%2C%20I%20want%20to%20book%20an%20appointment."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-2xl bg-gradient-to-tr from-fuchsia-600 to-pink-500 px-5 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-semibold shadow-xl hover:scale-[1.02] active:scale-[0.98] transition"
@@ -99,15 +76,18 @@ export default function Home() {
                 <MessageCircle className="transition group-hover:rotate-6" />
                 Talk to Agent
               </Link>
-              <p className="text-[11px] sm:text-xs text-white/70">Open 7 days • 11:00 AM – 8:00 PM</p>
+              <p className="text-[11px] sm:text-xs text-white/70">
+                Open 7 days • 11:00 AM – 9:00 PM
+              </p>
             </div>
           </div>
         </section>
       </main>
 
+      {/* ---- Footer ---- */}
       <footer className="relative z-10 border-t border-white/10 bg-black/30 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-white/60">
-          <p>© {new Date().getFullYear()} Sana Sarah's Salon & Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Sana Sarah&apos;s Salon &amp; Studio. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="#" className="hover:text-white/90 transition">Privacy</Link>
             <Link href="#" className="hover:text-white/90 transition">Terms</Link>
@@ -115,10 +95,11 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
 
+/* ---- City Card Component ---- */
 function CityCard({ city, href }: { city: string; href: string }) {
   return (
     <Link
@@ -129,7 +110,7 @@ function CityCard({ city, href }: { city: string; href: string }) {
       <div className="relative z-10 flex items-center justify-between">
         <div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{city}</h3>
-          <p className="mt-1 text-xs sm:text-sm text-white/60">Explore services & offers</p>
+          <p className="mt-1 text-xs sm:text-sm text-white/60">Explore services &amp; offers</p>
         </div>
         <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-2xl bg-gradient-to-br from-pink-600/70 to-fuchsia-500/70 flex items-center justify-center text-lg sm:text-xl font-bold">
           →

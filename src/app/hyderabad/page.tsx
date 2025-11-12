@@ -2,20 +2,19 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { HomeIcon, MessageCircle, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone, MessageCircle } from "lucide-react";
 
 const WA_LINK =
-  "https://api.whatsapp.com/send/?phone=03331702212&text&type=phone_number&app_absent=0";
+  "https://api.whatsapp.com/send/?phone=03331702212&text=Hi%20Sana%20Sarah%20Salon%2C%20I%20want%20to%20book%20an%20appointment.&type=phone_number&app_absent=0";
 
-export default function HyderabadBranchMain() {
+export default function HyderabadBranch() {
   const branch = {
-    name: "Hyderabad",
+    title: "Hyderabad Branch",
     address:
-      "Plot No. B/1-54, Ground Floor, Railway Employees Housing Society, Main Auto Bhan Road, Next to Bank Islamic & Haveli Restaurant",
+      "Plot No. B/1-54, Ground Floor, Railway Employees Housing Society, Main Auto Bhan Road, Next to Bank Islamic & Haveli Restaurant, Hyderabad",
     phones: ["0370-0918026", "022-3823358", "+92 340 2043923"],
-    mapEmbed: (
+    map: (
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.871960944083!2d68.34655131502803!3d25.37519418381925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c710034718e5f%3A0x72761edfbabe8786!2sSana%20Sarahs%20Salon%20and%20Studio%20-%20Hyderabad!5e0!3m2!1sen!2s!4v1730915402321!5m2!1sen!2s"
         width="100%"
@@ -23,126 +22,40 @@ export default function HyderabadBranchMain() {
         style={{ border: 0, borderRadius: "12px" }}
         allowFullScreen
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
       />
     ),
   };
 
   return (
-    <div className="relative min-h-screen text-white">
-      {/* Soft glows */}
+    <div className="relative min-h-screen text-white overflow-hidden">
+      {/* soft glows */}
       <div
         aria-hidden
-        className="absolute -top-32 left-1/2 -translate-x-1/2 h-[400px] w-[400px] rounded-full blur-3xl bg-fuchsia-700/10"
+        className="absolute -top-40 left-1/2 -translate-x-1/2 h-[420px] w-[420px] rounded-full blur-3xl bg-fuchsia-700/10"
       />
       <div
         aria-hidden
-        className="absolute -bottom-32 right-0 h-[340px] w-[340px] rounded-full blur-3xl bg-pink-600/10"
+        className="absolute -bottom-40 right-10 h-[360px] w-[360px] rounded-full blur-3xl bg-pink-600/10"
       />
 
-      {/* Header */}
-      <header className="relative z-10">
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo.jpeg"
-              alt="Sana Sarah Salon"
-              width={48}
-              height={48}
-              className="rounded-full ring-1 ring-white/20 object-cover bg-white"
-            />
-            <div className="leading-tight">
-              <span className="block text-[10px] sm:text-xs tracking-widest text-white/60">
-                SANA SARAH SALON — HYDERABAD
-              </span>
-              <h1 className="text-lg sm:text-xl font-semibold tracking-wide">
-                Hyderabad Branch
-              </h1>
-            </div>
-          </div>
-
-          {/* Desktop actions */}
-          <div className="hidden sm:flex items-center gap-3">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition backdrop-blur-md"
-            >
-              <HomeIcon size={16} /> Home
-            </Link>
-            <Link
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-tr from-pink-600 to-fuchsia-500 px-4 py-2 text-sm font-medium shadow-lg hover:brightness-110 transition"
-            >
-              <MessageCircle size={16} /> Talk to Agent
-            </Link>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile home */}
-      <div className="sm:hidden fixed bottom-4 right-4 z-50">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1 rounded-xl bg-white text-black font-semibold shadow-lg px-3 py-2 text-xs hover:bg-gray-200 transition"
-        >
-          <HomeIcon size={14} className="text-black" /> Home
-        </Link>
-      </div>
-
-      {/* Main content */}
-      <main className="relative z-10">
-        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <motion.div
+      <main className="relative z-10 pt-28 pb-20">
+        <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* --- Branch Title --- */}
+          <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="text-center max-w-2xl mx-auto"
+            transition={{ duration: 0.4 }}
+            className="text-center text-3xl sm:text-4xl font-bold mb-10"
           >
-            <p className="text-xs sm:text-sm tracking-widest text-white/70 uppercase">
-              Address and Contact Details
-            </p>
-            <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
-              Hyderabad — Branch
-            </h2>
-          </motion.div>
+            {branch.title}
+          </motion.h1>
 
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-5">
-            <div className="lg:col-span-2 space-y-5">
-              <InfoCard icon={<MapPin />} title="Address" text={branch.address} />
-              <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
-                <div className="flex items-start gap-3">
-                  <Phone className="mt-0.5" />
-                  <div>
-                    <p className="text-sm text-white/60">Phone Numbers</p>
-                    <div className="mt-1 flex flex-wrap gap-2">
-                      {branch.phones.map((p) => (
-                        <Link
-                          key={p}
-                          href={`tel:${p.replace(/\s+/g, "")}`}
-                          className="inline-flex rounded-xl border border-white/10 bg-white/10 px-3 py-1.5 text-xs hover:bg-white/20 transition"
-                        >
-                          {p}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] overflow-hidden">
-              {branch.mapEmbed}
-            </div>
-          </div>
-
-          {/* Services */}
+          {/* --- Services Section --- */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             <ServiceCard title="Rate List" href="/hyderabad/ratelist" />
             <ServiceCard title="Current Deals" href="/hyderabad/current-deals" />
@@ -152,6 +65,45 @@ export default function HyderabadBranchMain() {
             <ServiceCard title="Book Appointment" href={WA_LINK} external accent />
           </motion.div>
 
+          {/* --- Address + Map Section --- */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5"
+          >
+            {/* Left: Address + Phones */}
+            <div className="lg:col-span-2 space-y-5">
+              <InfoCard icon={<MapPin />} title="Address" text={branch.address} />
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
+                <div className="flex items-start gap-3">
+                  <Phone className="mt-0.5 text-pink-400" />
+                  <div>
+                    <p className="text-sm text-white/60">Phone Numbers</p>
+                    <div className="mt-1 flex flex-wrap gap-2">
+                      {branch.phones.map((num) => (
+                        <Link
+                          key={num}
+                          href={`tel:${num.replace(/\s+/g, "")}`}
+                          className="inline-flex rounded-xl border border-white/10 bg-white/10 px-3 py-1.5 text-xs hover:bg-white/20 transition"
+                        >
+                          {num}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Map */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.04] overflow-hidden">
+              {branch.map}
+            </div>
+          </motion.div>
+
+          {/* --- CTA Button --- */}
           <div className="mt-10 flex flex-col items-center gap-2">
             <Link
               href={WA_LINK}
@@ -162,7 +114,9 @@ export default function HyderabadBranchMain() {
               <MessageCircle />
               Talk to Agent
             </Link>
-            <p className="text-xs text-white/60">Open 7 days • 11:00 AM – 8:00 PM</p>
+            <p className="text-xs text-white/60">
+              Open 7 days • 11:00 AM – 11:00 PM
+            </p>
           </div>
         </section>
       </main>
@@ -170,6 +124,7 @@ export default function HyderabadBranchMain() {
   );
 }
 
+/* --- Info Card Component --- */
 function InfoCard({
   icon,
   title,
@@ -192,6 +147,7 @@ function InfoCard({
   );
 }
 
+/* --- Service Card Component --- */
 function ServiceCard({
   title,
   href,

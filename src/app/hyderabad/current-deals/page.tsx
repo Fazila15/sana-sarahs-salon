@@ -144,7 +144,7 @@ export default function HyderabadCurrentDealsPage() {
         </div>
 
         <p className="text-center text-xs text-white/60">
-          Open 7 days • 11:00 AM – 8:00 PM
+          Open 7 days • 11:00 AM – 11:00 PM
         </p>
       </main>
 

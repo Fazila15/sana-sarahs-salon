@@ -85,7 +85,7 @@ export default function HyderabadRateList() {
             <MessageCircle />
             Talk to Agent
           </Link>
-          <p className="text-xs text-white/60">Open 7 days • 11:00 AM – 8:00 PM</p>
+          <p className="text-xs text-white/60">Open 7 days • 11:00 AM – 11:00 PM</p>
         </section>
       </main>
     </div>

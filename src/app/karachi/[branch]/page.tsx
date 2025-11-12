@@ -125,56 +125,6 @@ export default function KarachiBranchMain() {
         className="absolute -bottom-40 right-10 h-[360px] w-[360px] rounded-full blur-3xl bg-pink-600/10"
       />
 
-      {/* Header */}
-      <header className="relative z-10">
-        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo.jpeg"
-              alt="Sana Sarah Salon"
-              width={48}
-              height={48}
-              className="rounded-full ring-1 ring-white/20 object-cover bg-white"
-            />
-            <div className="leading-tight">
-              <span className="block text-[10px] sm:text-xs tracking-widest text-white/60">
-                SANA SARAH'S SALON & STUDIO — KARACHI
-              </span>
-              <h1 className="text-lg sm:text-xl font-semibold tracking-wide">
-                {title} Branch
-              </h1>
-            </div>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-3">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition backdrop-blur-md"
-            >
-              <HomeIcon size={16} /> Home
-            </Link>
-            <Link
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-tr from-pink-600 to-fuchsia-500 px-4 py-2 text-sm font-medium shadow-lg hover:brightness-110 transition"
-            >
-              <MessageCircle size={16} /> Talk to Agent
-            </Link>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile home */}
-      <div className="sm:hidden fixed bottom-4 right-4 z-50">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1 rounded-xl bg-white text-black font-semibold shadow-lg px-3 py-2 text-xs hover:bg-gray-200 transition"
-        >
-          <HomeIcon size={14} className="text-black" /> Home
-        </Link>
-      </div>
-
       {/* Main */}
       <main className="relative z-10">
         <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
@@ -185,15 +135,35 @@ export default function KarachiBranchMain() {
             className="text-center max-w-2xl mx-auto"
           >
             <p className="text-xs sm:text-sm tracking-widest text-white/70 uppercase">
-              Address and Contact Details
+              Explore our services
             </p>
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold">
-              {title} — Karachi
+              {title} Branch — Karachi
             </h2>
           </motion.div>
 
-          {/* Address + Phones + Map */}
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-5">
+          {/* ---- Service Buttons (Moved Up) ---- */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            <ServiceCard title="Rate List" href={`/karachi/${slug}/ratelist`} />
+            <ServiceCard title="Current Deals" href={`/karachi/${slug}/current-deals`} />
+            <ServiceCard title="Makeup Catalogue" href={`/karachi/${slug}/gallery/makeup`} />
+            <ServiceCard title="Haircare Catalogue" href={`/karachi/${slug}/gallery/haircare`} />
+            <ServiceCard title="Skincare Catalogue" href={`/karachi/${slug}/gallery/skincare`} />
+            <ServiceCard title="Book Appointment" href={WA_LINK} external accent />
+          </motion.div>
+
+          {/* ---- Address + Contact + Map (Now at Bottom) ---- */}
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5"
+          >
             <div className="lg:col-span-2 space-y-5">
               <InfoCard icon={<MapPin />} title="Address" text={data.address} />
               <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-5">
@@ -220,23 +190,9 @@ export default function KarachiBranchMain() {
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] overflow-hidden">
               {data.mapEmbed}
             </div>
-          </div>
-
-          {/* Service Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-          >
-            <ServiceCard title="Rate List" href={`/karachi/${slug}/ratelist`} />
-            <ServiceCard title="Current Deals" href={`/karachi/${slug}/current-deals`} />
-            <ServiceCard title="Makeup Catalogue" href={`/karachi/${slug}/gallery/makeup`} />
-            <ServiceCard title="Haircare Catalogue" href={`/karachi/${slug}/gallery/haircare`} />
-            <ServiceCard title="Skincare Catalogue" href={`/karachi/${slug}/gallery/skincare`} />
-            <ServiceCard title="Book Appointment" href={WA_LINK} external accent />
           </motion.div>
 
+          {/* ---- Agent CTA ---- */}
           <div className="mt-10 flex flex-col items-center gap-2">
             <Link
               href={WA_LINK}
