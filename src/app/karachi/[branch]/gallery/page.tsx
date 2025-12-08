@@ -14,7 +14,7 @@ const BRANCH_LABELS: Record<string, string> = {
   "tariq-road": "Tariq Road",
 };
 
-const WHATSAPP_NUMBER = "02138899883";
+const WHATSAPP_NUMBER = "922138899883";
 
 const CATALOGUE: { label: string; slug: string }[] = [
   { label: "Signature by Sana Sarah", slug: "signature-by-sana-sarah" },

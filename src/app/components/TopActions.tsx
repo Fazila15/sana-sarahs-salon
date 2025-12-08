@@ -7,7 +7,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { ArrowLeft, Home, MessageCircle } from "lucide-react";
 
 export default function TopActions({
-  whatsapp = "02138899883",
+  whatsapp = "922138899883",
 }: {
   whatsapp?: string;
 }) {
